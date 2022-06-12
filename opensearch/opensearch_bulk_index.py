@@ -13,10 +13,10 @@ client = OpenSearch(
     http_auth=auth,
     # client_cert = client_cert_path,
     # client_key = client_key_path,
-    use_ssl=True,
+    use_ssl=False,
     verify_certs=False,
     ssl_assert_hostname=False,
-    ssl_show_warn=False,
+    ssl_show_warn=False
 )
 
 
@@ -72,4 +72,4 @@ docs = [
 
 bulk(client, docs)
 
-print(client.cat.count(index_name, params={"v": "true"}))
+print(f'Doc Count:\n {client.cat.count(index_name, params={"v": "true"})}')
